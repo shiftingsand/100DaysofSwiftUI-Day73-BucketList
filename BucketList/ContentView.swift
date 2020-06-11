@@ -8,29 +8,28 @@
 
 import SwiftUI
 
-struct User : Identifiable, Comparable {
-    let id = UUID()
-    var firstName : String
-    var lastName : String
-    
-    static func < (lhs: User, rhs: User) -> Bool {
-        lhs.lastName < rhs.lastName
-    }
-}
-
 struct ContentView: View {
-    let allUsers : [User] = [
-    User(firstName: "Chris", lastName: "Smith"),
-        User(firstName: "Andy", lastName: "Andrews"),
-        User(firstName: "Brian", lastName: "Zends")
-    ].sorted()
-    
+    let filename = "message.txt"
     var body: some View {
-        List {
-            ForEach(allUsers) { usey in
-                Text("\(usey.lastName) \(usey.firstName)")
-            }
+        Text("Hello world")
+            .onTapGesture {
+                let str = "Test Message"
+                let url = self.getDocumentsDirectory().appendingPathComponent(self.filename)
+                
+                do {
+                    try str.write(to: url, atomically: true, encoding: .utf8)
+                    
+                    let input = try String(contentsOf: url)
+                    print("i read back \"\(input)\"")
+                } catch {
+                    print(error.localizedDescription)
+                }
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
