@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     let filename = "message.txt"
     var body: some View {
+        VStack {
         Text("Hello world")
             .onTapGesture {
                 let str = "Test Message"
@@ -25,11 +26,28 @@ struct ContentView: View {
                     print(error.localizedDescription)
                 }
         }
+            Text("filemanager says \(FileManager.default.readMyFile(theFileName: filename))")
+        }
     }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+}
+
+extension FileManager {
+    func readMyFile(theFileName : String) -> String {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let onePath : URL = paths[0]
+        let url = onePath.appendingPathComponent(theFileName)
+        
+        do {
+            let input = try String(contentsOf: url)
+            return input
+        } catch {
+            return(error.localizedDescription)
+        }
     }
 }
 
