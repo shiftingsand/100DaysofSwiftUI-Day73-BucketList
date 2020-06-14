@@ -27,12 +27,6 @@ struct MapView : UIViewRepresentable {
             parent.centerCoordinate = mapView.centerCoordinate
         }
         
-//        func mapView(_ mapview : MKMapView, viewFor annotation : MKAnnotation) -> MKAnnotationView? {
-//            let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-//            view.canShowCallout = true
-//            return view
-//        }
-        
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             // this is our unique identifier for view reuse
             let identifier = "Placemark"
