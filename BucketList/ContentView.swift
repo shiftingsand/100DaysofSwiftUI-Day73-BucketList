@@ -12,18 +12,17 @@ import MapKit
 
 struct ContentView: View {
     let myFilename = "SavedPlaces"
-    @State private var centerCoordinate = CLLocationCoordinate2D()
-    @State private var locations = [CodableMKPointAnnotation]()
-    @State private var selectedPlace: MKPointAnnotation?
+    @State var centerCoordinate = CLLocationCoordinate2D()
+    @State var locations = [CodableMKPointAnnotation]()
+    @State var selectedPlace: MKPointAnnotation?
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
-    @State private var isUnlocked = false
+    @State private var isUnlocked = true
     
     var body: some View {
         ZStack {
             if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
-                    .edgesIgnoringSafeArea(.all)
+                Mappy(centerCoordinate: $centerCoordinate, locations: locations, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                 Circle()
                     .fill(Color.blue)
                     .opacity(0.3)
@@ -43,13 +42,13 @@ struct ContentView: View {
                         }
                         ) {
                             Image(systemName: "plus")
+                                .padding()
+                                .background(Color.black.opacity(0.75))
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .clipShape(Circle())
+                                .padding(.trailing)
                         }
-                        .padding()
-                        .background(Color.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
                     }
                 }
             } else {

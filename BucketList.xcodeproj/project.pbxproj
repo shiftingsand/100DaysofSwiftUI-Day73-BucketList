@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961D285F24993E7200337824 /* Mappy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D285E24993E7200337824 /* Mappy.swift */; };
 		96AC39552492874F004B0A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC39542492874F004B0A71 /* AppDelegate.swift */; };
 		96AC39572492874F004B0A71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AC39562492874F004B0A71 /* SceneDelegate.swift */; };
 		96AC395A24928750004B0A71 /* BucketList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96AC395824928750004B0A71 /* BucketList.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		961D285E24993E7200337824 /* Mappy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappy.swift; sourceTree = "<group>"; };
 		96AC39512492874F004B0A71 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96AC39542492874F004B0A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96AC39562492874F004B0A71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				96AC39542492874F004B0A71 /* AppDelegate.swift */,
 				96AC39562492874F004B0A71 /* SceneDelegate.swift */,
 				96AC395B24928750004B0A71 /* ContentView.swift */,
+				961D285E24993E7200337824 /* Mappy.swift */,
 				96EACCC62496D7460059340A /* Result.swift */,
 				96AC395D24928753004B0A71 /* Assets.xcassets */,
 				96AC396224928753004B0A71 /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 				96EACCC924981E0D0059340A /* MKPointAnnotation-Codable.swift in Sources */,
 				96EACCC72496D7460059340A /* Result.swift in Sources */,
 				96AC39572492874F004B0A71 /* SceneDelegate.swift in Sources */,
+				961D285F24993E7200337824 /* Mappy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
