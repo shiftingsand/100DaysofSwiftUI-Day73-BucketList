@@ -11,7 +11,8 @@ import LocalAuthentication
 import MapKit
 
 struct ContentView: View {
-    @State private var isUnlocked = true
+    @State private var isUnlocked = false
+    @State private var showingBioFail = false
     
     var body: some View {
         ZStack {
@@ -27,6 +28,9 @@ struct ContentView: View {
                 .clipShape(Capsule())
             }
         } // zstack
+            .alert(isPresented: $showingBioFail) {
+                Alert(title: Text("Hold up!"), message: Text("You must authenticate before using this app."), dismissButton: .default(Text("OK")))
+        }
     }
     
     func authenticate() {
@@ -41,7 +45,7 @@ struct ContentView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.showingBioFail = true
                     }
                 }
             }
